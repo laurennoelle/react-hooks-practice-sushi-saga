@@ -1,11 +1,12 @@
 import React from "react";
 import MoreButton from "./MoreButton";
+import Sushi from "./Sushi";
 
-function SushiContainer(props) {
+function SushiContainer( {sushis, nextSushis, eatSushi} ) {
   return (
     <div className="belt">
-      {/* Render Sushi components here! */}
-      <MoreButton />
+      {sushis.map(s => <Sushi key={s.id} sushi={s} eatSushi={eatSushi} />)}
+      <MoreButton handleClick={nextSushis}/>
     </div>
   );
 }
