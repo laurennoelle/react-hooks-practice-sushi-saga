@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SushiContainer from "./SushiContainer";
 import Table from "./Table";
+import SushiWallet from "./SushiWallet";
 
 const API = "http://localhost:3001/sushis";
 const displaySize = 4;
@@ -30,6 +31,10 @@ useEffect(() => {
   }
 }
   
+  function addMoney(amount) {
+    addMoney(money + amount);
+  }
+ 
   return (
     <div className="app">
       <SushiContainer 
@@ -38,6 +43,7 @@ useEffect(() => {
       eatSushi={eatSushi} 
       />
       <Table plates={sushis.filter((s) => s.eaten)} money={money}/>
+      <SushiWallet addMoney={{addMoney}}/>
     </div>
   );
 }
